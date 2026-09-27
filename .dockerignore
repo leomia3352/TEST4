@@ -1,0 +1,101 @@
+# =============================================================================
+# BERMUDA Stealth Gateway NG — Production Docker Context Exclusions
+# Defense-in-Depth Build Boundary Filter
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. HARD INVARIANT #5: Client Artifacts & Local Cockpit
+# MUST NEVER be baked into the server container or exposed on Railway edge
+# -----------------------------------------------------------------------------
+index.html
+*.html
+cockpit/
+client/
+workspace/
+uploads/
+
+# -----------------------------------------------------------------------------
+# 2. Version Control Metadata & CI Workflows
+# -----------------------------------------------------------------------------
+.git
+.gitignore
+.gitattributes
+.github
+.gitmodules
+
+# -----------------------------------------------------------------------------
+# 3. Documentation, Markdown & Operational Research Notes
+# -----------------------------------------------------------------------------
+README.md
+*.md
+docs/
+LICENSE*
+*.txt
+!go.mod
+
+# -----------------------------------------------------------------------------
+# 4. Local Build Artifacts, Precompiled Binaries & Testing Dumps
+# -----------------------------------------------------------------------------
+out/
+bin/
+dist/
+*.exe
+*.bin
+*.dll
+*.so
+*.dylib
+bermuda-gateway*
+xray*
+*.test
+*.out
+*.prof
+*.pprof
+coverage/
+vendor/
+
+# -----------------------------------------------------------------------------
+# 5. OS Metadata, Temporary Swaps & Cache Files
+# -----------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.tmp
+*.temp
+
+# -----------------------------------------------------------------------------
+# 6. IDEs & Editor Configuration Trees
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.cursor/
+
+# -----------------------------------------------------------------------------
+# 7. Local Logs, Test Caches & Script Dumps
+# -----------------------------------------------------------------------------
+*.log
+tmp/
+temp/
+logs/
+.arena/
+.cache/
+.local/
+__pycache__/
+.pytest_cache/
+node_modules/
+
+# -----------------------------------------------------------------------------
+# 8. Local Environment Secrets
+# -----------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.env
+secrets/
+*.pem
+*.key
+*.crt
